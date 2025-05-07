@@ -18,6 +18,17 @@ public class Cliente {
         endereco = read.nextLine();
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Cliente{");
+        sb.append("nome='").append(nome).append('\'');
+        sb.append(", cpf='").append(cpf).append('\'');
+        sb.append(", endereco='").append(endereco).append('\'');
+        sb.append(", isFidelidade=").append(isFidelidade);
+        sb.append('}');
+        return sb.toString();
+    }
+
     public String getEndereco() {
         return endereco;
     }
