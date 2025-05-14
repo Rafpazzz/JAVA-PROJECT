@@ -29,6 +29,19 @@ public class Cliente {
         return sb.toString();
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Cliente)) {
+            return false;
+        }
+        final Cliente c = (Cliente) obj;
+        return this.getCpf().equals(c.getCpf());
+    }
+
+    public void setFidelidade(boolean fidelidade) {
+        isFidelidade = fidelidade;
+    }
+
     public String getEndereco() {
         return endereco;
     }
