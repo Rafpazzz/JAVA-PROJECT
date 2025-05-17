@@ -14,7 +14,7 @@ public class Cliente {
         nome = read.nextLine();
         System.out.print("Informe o CPF: ");
         cpf = read.nextLine();
-        System.out.println("Informe o Endereço: ");
+        System.out.print("Informe o Endereço: ");
         endereco = read.nextLine();
     }
 
@@ -37,6 +37,8 @@ public class Cliente {
         final Cliente c = (Cliente) obj;
         return this.getCpf().equals(c.getCpf());
     }
+
+
 
     public void setFidelidade(boolean fidelidade) {
         isFidelidade = fidelidade;
