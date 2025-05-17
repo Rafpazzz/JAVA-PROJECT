@@ -1,6 +1,8 @@
 package Ambiente_Do_Usuario;
 
 import Cadastro.Cliente;
+import Cadastro.Pedido;
+import Cadastro.Produto;
 
 import java.io.*;
 import java.nio.file.Path;
@@ -10,10 +12,9 @@ import java.util.Scanner;
 
 public class test_Arquivos {
     public static void main(String[] args) {
-//        File file1 = new File("JAVA-PROJECT\\Farmacia\\src\\Banco_Arquivos\\Cliente.txt");
-//        File file2 = new File("JAVA-PROJECT\\Farmacia\\src\\Banco_Arquivos\\Produto.txt");
-//        File file3 = new File("JAVA-PROJECT\\Farmacia\\src\\Banco_Arquivos\\Pedido.txt");
         Path path1 = Paths.get("Cliente.txt");
+        Path path2 = Paths.get("Produto.txt");
+        Path path3 = Paths.get("Pedido.txt");
         int escolha, getI = -1;
         boolean encontrado = false;
         Scanner r = new Scanner(System.in);
@@ -40,14 +41,23 @@ public class test_Arquivos {
                     clientes.remove(getI);
                     clientes.add(c);
                     break;
-
+                case 2:
+                    Produto p = new Produto();
+                    p.addProduto();
+                    addArquivo(p,path2);
+                    break;
+                case 3:
+                    Pedido ped = new Pedido();
+                    ped.addPedido();
+                    addArquivo(ped,path3);
+                    break;
             }
         } while (escolha <= 3);
 
     }
 
-    public static void addArquivo(Object a, File file) {
-        try (FileWriter fw = new FileWriter(file, true); BufferedWriter br = new BufferedWriter(fw)) {
+    public static void addArquivo(Object a, Path file) {
+        try (FileWriter fw = new FileWriter(file.toFile(), true); BufferedWriter br = new BufferedWriter(fw)) {
             br.write(a.toString());
             br.newLine();
         } catch (IOException e) {
