@@ -1,4 +1,4 @@
-package Cadastro;
+package Farmacia_CRUD.Cadastro;
 
 import java.util.Scanner;
 

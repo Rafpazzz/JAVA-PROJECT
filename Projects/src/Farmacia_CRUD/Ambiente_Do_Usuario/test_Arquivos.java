@@ -1,8 +1,8 @@
-package Ambiente_Do_Usuario;
+package Farmacia_CRUD.Ambiente_Do_Usuario;
 
-import Cadastro.Cliente;
-import Cadastro.Pedido;
-import Cadastro.Produto;
+import Farmacia_CRUD.Cadastro.Cliente;
+import Farmacia_CRUD.Cadastro.Pedido;
+import Farmacia_CRUD.Cadastro.Produto;
 
 import java.io.*;
 import java.nio.file.Path;
