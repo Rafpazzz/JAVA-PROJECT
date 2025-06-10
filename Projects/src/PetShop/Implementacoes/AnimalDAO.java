@@ -1,6 +1,5 @@
 package PetShop.Implementacoes;
 
-import PetShop.BancoDados.View;
 import PetShop.Exceptions.MyException;
 import PetShop.Objetos.Animal;
 
@@ -17,7 +16,6 @@ public class AnimalDAO {
         } else {
             list.add(animal);
             addArquivo(file, animal);
-            //visao.inserirBanco(visao.conectar(), animal);
         }
     }
 
@@ -37,7 +35,6 @@ public class AnimalDAO {
         }else {
             list.remove(animalRemuved);
             removeArquivo(file, animalRemuved);
-            //visao.removerBanco(visao.conectar(),id);
         }
     }
 
