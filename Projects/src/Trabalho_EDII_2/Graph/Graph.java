@@ -1,4 +1,4 @@
-package MenuDeListas.Graph;
+package Trabalho_EDII_2.Graph;
 
 public class Graph {
     private int[][] matrisAdj;
@@ -26,26 +26,13 @@ public class Graph {
     public void graphDirecionado(int u, int v) {
         if (u < size && v < size && u >= 0 && v >= 0) {
             matrisAdj[u][v] = 1;
-            matrisAdj[v][u] = 1;
         }
     }
 
     public void graphNaoDirecionado(int u, int v) {
         if (u < size && v < size && u >= 0 && v >= 0) {
             matrisAdj[u][v] = 1;
-        }
-    }
-
-    public void graphDirecionadoPonderado(int u, int v, int peso) {
-        if (u < size && v < size && u >= 0 && v >= 0) {
-            matrisAdj[u][v] = peso;
             matrisAdj[v][u] = 1;
-        }
-    }
-
-    public void graphNaoDirecionadoPonderado(int u, int v, int peso) {
-        if (u < size && v < size && u >= 0 && v >= 0) {
-            matrisAdj[u][v] = peso;
         }
     }
 
