@@ -25,9 +25,47 @@ public class Tree {
 
         if(value > node.value) {
             node.right = inserirRec(node.right, value);
-        }else if(value < node.value) {
+        }else if(value <= node.value) {
             node.left = inserirRec(node.left, value);
         }
+
+        return node;
+    }
+
+    public void remover(int value) {
+        root = removerRec(value, root);
+    }
+
+    private void remover_sucessor(TreeNode node) {
+        TreeNode min = node.right;
+        TreeNode pai = node;
+
+        while(min.left != null) {
+            pai = min;
+            min = min.left;
+        }
+        if(pai.left == min) {
+            pai.left = min.right;
+        }else pai.right = min.right;
+
+        node.value = min.value;
+
+    }
+
+    private TreeNode removerRec(int value,TreeNode node) {
+        if(node == null) {
+            return null;
+        }
+
+        if(value < node.value) {
+            node.left = removerRec(value, node.left);
+        }else if(value > node.value) {
+            node.right = removerRec(value, node.right);
+        }else if(node.left == null) {
+            return node.right;
+        }else if(node.right == null) {
+            return  node.left;
+        }else remover_sucessor(node);
 
         return node;
     }
