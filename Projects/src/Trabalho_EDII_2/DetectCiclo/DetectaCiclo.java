@@ -1,6 +1,6 @@
 package Trabalho_EDII_2.DetectCiclo;
 
-public class DetectaCicloGradoNãoDirecionado {
+public class DetectaCiclo {
 
     private boolean dfs(int v, int[][] matriz, boolean[] visitado, boolean[] emRecursao) { //busca em profundidade
         visitado[v] = true;
@@ -23,7 +23,7 @@ public class DetectaCicloGradoNãoDirecionado {
     }
 
 
-    public String isCyclic(int[][] matix, int size) {
+    public boolean isCyclic(int[][] matix, int size) {
 
         boolean[] visitado = new boolean[size];
         boolean[] emRecursao = new boolean[size];
@@ -32,11 +32,11 @@ public class DetectaCicloGradoNãoDirecionado {
         for (int i = 0; i < size; i++) {
             if (!visitado[i]) {
                 if (dfs(i, matix, visitado, emRecursao)) {
-                    return "Ciclo detectado"; // Ciclo detectado
+                    return true; // Ciclo detectado
                 }
             }
         }
 
-        return "Ciclo não Detectado"; // Nenhum ciclo encontrado
+        return false; // Nenhum ciclo encontrado
     }
 }

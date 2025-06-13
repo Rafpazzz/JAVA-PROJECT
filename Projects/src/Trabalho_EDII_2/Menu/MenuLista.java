@@ -1,8 +1,7 @@
 package Trabalho_EDII_2.Menu;
 
 import Trabalho_EDII_2.BinaryTree.Tree;
-import Trabalho_EDII_2.DetectCiclo.DetectaCicloGradoNãoDirecionado;
-import Trabalho_EDII_2.DetectCiclo.DetectaCicloGrafoDirecionado;
+import Trabalho_EDII_2.DetectCiclo.DetectaCiclo;
 import Trabalho_EDII_2.Graph.Graph;
 import Trabalho_EDII_2.Ordenacao.OrdenacaoTopologica;
 import Trabalho_EDII_2.PontoDeArticulação.EncontrarPonto;
@@ -22,71 +21,65 @@ public class MenuLista {
             System.out.println(" ");
             System.out.println("========================");
             System.out.println("Escolha uma das opções abaixo:");
-            System.out.println("[1].Detecção de ciclos em grafos direcionados");
-            System.out.println("[2].Detecção de ciclos em grafos não direcionados");
-            System.out.println("[3].Ordenação topologica de Digrafos");
-            System.out.println("[4].Verificação de grafos Disconexo");
-            System.out.println("[5].Detecção de pontos de Articulação");
-            System.out.println("[6].Mostrar Arvore PreOrdem");
-            System.out.println("[7].Mostrar Arvore PosOrdem");
-            System.out.println("[8].Mostrar Arvore EmOrdem");
-            System.out.println("[9].Escolher novo grafo");
-            System.out.println("[10].Sair do menu");
+            System.out.println("[1].Detecção de ciclos");
+            System.out.println("[2].Ordenação topologica de Digrafos");
+            System.out.println("[3].Verificação de grafos Disconexo");
+            System.out.println("[4].Detecção de pontos de Articulação");
+            System.out.println("[5].Mostrar Arvore PreOrdem");
+            System.out.println("[6].Mostrar Arvore PosOrdem");
+            System.out.println("[7].Mostrar Arvore EmOrdem");
+            System.out.println("[8].Escolher novo grafo");
+            System.out.println("[9].Sair do menu");
             System.out.print("Escolha: ");
             escolha1 = r.nextInt();
 
             switch (escolha1) {
                 case 1:
-                    DetectaCicloGrafoDirecionado detectaCicloGrafoDirecionado = new DetectaCicloGrafoDirecionado();
-                    System.out.println(detectaCicloGrafoDirecionado.isCyclicUtil(graph,size));
+                    DetectaCiclo detectaCiclo = new DetectaCiclo();
+                    System.out.println(detectaCiclo.isCyclic(graph,size));
 
                     break;
 
                 case 2:
-                    DetectaCicloGradoNãoDirecionado detectaCicloGradoNãoDirecionado = new DetectaCicloGradoNãoDirecionado();
-                    System.out.println(detectaCicloGradoNãoDirecionado.isCyclic(graph, size));
-                    break;
-
-                case 3:
                     OrdenacaoTopologica ordenacaoTopologica = new OrdenacaoTopologica();
                     System.out.println(ordenacaoTopologica.ordemTop(graph,size));
                     break;
 
-                case 4:
+                case 3:
                     IsConect conect = new IsConect();
                     System.out.println(conect.isConexo(graph, size));
                     break;
 
-                case 5:
+                case 4:
                     EncontrarPonto encontrarPontoArticulacao = new EncontrarPonto();
                     encontrarPontoArticulacao.encontrarPontos(graph);
                     break;
 
-                case 6:
+                case 5:
                     arvoreBinaria.preOrdem();
                     break;
 
-                case 7:
+                case 6:
                     arvoreBinaria.posOrdem();
                     break;
 
-                case 8:
+                case 7:
                     arvoreBinaria.emOrdem();
                     break;
 
-                case 9:
+                case 8:
                     graph = Graph();
                     size = graph.length;
                     break;
 
-                case 10:
+                case 9:
                     System.out.println("Obrigado pela participação!");
                     System.exit(-1);
                 default:
                     System.out.println("Escolha um das opções validas");
             }
 
-        } while (escolha1 != 10);
+        } while (escolha1 != 9);
 
     }
 

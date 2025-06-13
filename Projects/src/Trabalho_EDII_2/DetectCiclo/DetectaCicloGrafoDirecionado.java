@@ -5,8 +5,8 @@ import java.util.List;
 
 public class DetectaCicloGrafoDirecionado {
 
-    // Função recursiva auxiliar (DFS) para detectar ciclos
-    private static boolean isCyclicDFS(List<Integer>[] adj, int v, boolean[] visitado, boolean[] recStack) {
+    // Função recursiva auxiliar (DFS) para detect ciclos
+    private static boolean DFS(List<Integer>[] adj, int v, boolean[] visitado, boolean[] recStack) {
         if (recStack[v]) return true;
         if (visitado[v]) return false;
 
@@ -14,7 +14,7 @@ public class DetectaCicloGrafoDirecionado {
         recStack[v] = true;
 
         for (int u : adj[v]) {
-            if (isCyclicDFS(adj, u, visitado, recStack)) {
+            if (DFS(adj, u, visitado, recStack)) {
                 return true;
             }
         }
@@ -47,7 +47,7 @@ public class DetectaCicloGrafoDirecionado {
 
         for (int i = 0; i < size; i++) {
             if (!visitado[i]) {
-                if (isCyclicDFS(adj, i, visitado, recStack)) {
+                if (DFS(adj, i, visitado, recStack)) {
                     return "Ciclo encontrado";
                 }
             }

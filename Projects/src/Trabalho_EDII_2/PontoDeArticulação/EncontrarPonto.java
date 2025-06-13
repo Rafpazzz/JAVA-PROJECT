@@ -5,9 +5,33 @@ import java.util.Arrays;
 public class EncontrarPonto {
     private int tempo;
 
-    private void dfs(int u, boolean[] visitado, int[] discovery, int[] low, int[] pai,
-                     boolean[] articulacao, int[][] matriz) {
+    public void encontrarPontos(int[][] matriz) {
+        int V = matriz.length;
+        boolean[] visitado = new boolean[V];
+        int[] discovery = new int[V]; //tempo para um determinado vertice ser descoberto pelo dfs, ou seja, o número de vertices que passa para chegar nele.
+        int[] low = new int[V]; //Menor tempo que leva para descobir um determinado nó ou os seus filhos
+        int[] pai = new int[V];
+        boolean[] articulacao = new boolean[V];
 
+        Arrays.fill(pai, -1);
+        tempo = 0;
+
+        //Laço de repetição para verificar se o grafo é desconexo e iniciar a exploração do vertice
+        for (int i = 0; i < V; i++) {
+            if (!visitado[i]) {
+                dfs(i, visitado, discovery, low, pai, articulacao, matriz);
+            }
+        }
+
+        System.out.print("Pontos de articulação: ");
+        for (int i = 0; i < V; i++) {
+            if (articulacao[i]) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+    private void dfs(int u, boolean[] visitado, int[] discovery, int[] low, int[] pai, boolean[] articulacao, int[][] matriz) {
         visitado[u] = true;
         discovery[u] = low[u] = ++tempo;
         int filhos = 0;
@@ -35,29 +59,4 @@ public class EncontrarPonto {
     }
 
 
-
-    public void encontrarPontos(int[][] matriz) {
-        int V = matriz.length;
-        boolean[] visitado = new boolean[V];
-        int[] discovery = new int[V];
-        int[] low = new int[V];
-        int[] pai = new int[V];
-        boolean[] articulacao = new boolean[V];
-
-        Arrays.fill(pai, -1);
-        tempo = 0;
-
-        for (int i = 0; i < V; i++) {
-            if (!visitado[i]) {
-                dfs(i, visitado, discovery, low, pai, articulacao, matriz);
-            }
-        }
-
-        System.out.print("Pontos de articulação: ");
-        for (int i = 0; i < V; i++) {
-            if (articulacao[i]) {
-                System.out.print(i + " ");
-            }
-        }
-    }
 }
