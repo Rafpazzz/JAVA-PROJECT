@@ -3,7 +3,7 @@ package Trabalho_EDII_2.DetectCiclo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetectaCicloGrafoDirecionado {
+public class DetectaCiclo2 {
 
     // Função recursiva auxiliar (DFS) para detect ciclos
     private static boolean DFS(List<Integer>[] adj, int v, boolean[] visitado, boolean[] recStack) {

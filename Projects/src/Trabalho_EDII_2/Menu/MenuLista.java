@@ -29,8 +29,9 @@ public class MenuLista {
             System.out.println("[6].Mostrar Arvore PosOrdem");
             System.out.println("[7].Mostrar Arvore EmOrdem");
             System.out.println("[8].Remover nó da Arvore ");
-            System.out.println("[9].Escolher novo grafo");
-            System.out.println("[10].Sair do menu");
+            System.out.println("[9].Inserir nó da Arvore ");
+            System.out.println("[10].Escolher novo grafo");
+            System.out.println("[11].Sair do menu");
             System.out.print("Escolha: ");
             escolha1 = r.nextInt();
 
@@ -76,18 +77,25 @@ public class MenuLista {
                     break;
 
                 case 9:
+                    System.out.print("Insira Qual nó deseja remover: ");
+                    int valorInserir = r.nextInt();
+                    r.nextLine();
+                    arvoreBinaria.inserir(valorInserir);
+                    break;
+
+                case 10:
                     graph = Graph();
                     size = graph.length;
                     break;
 
-                case 10:
+                case 11:
                     System.out.println("Obrigado pela participação!");
                     System.exit(-1);
                 default:
                     System.out.println("Escolha um das opções validas");
             }
 
-        } while (escolha1 != 10);
+        } while (escolha1 != 11);
 
     }
 
@@ -155,7 +163,6 @@ public class MenuLista {
 
     public static Tree criaArvore() {
         Tree arvore = new Tree();
-
 
         arvore.inserir(10);
         arvore.inserir(3);
