@@ -6,6 +6,7 @@ package com.mycompany.rzsupermarket.Interfaces;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFrame;
 
 /**
  *
@@ -42,7 +43,7 @@ public class Menu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Felix Titling", 1, 14)); // NOI18N
-        jLabel1.setText("                                                RZ SuperMarket");
+        jLabel1.setText("                                          RZ SuperMarket");
         jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(7, 7, 7, 7, new java.awt.Color(0, 153, 204)));
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -105,7 +106,9 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadastrarProduto(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarProduto
+        prodMenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);// quando fecha a janela o programa não encerra
         prodMenu.setVisible(true);
+
     }//GEN-LAST:event_cadastrarProduto
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

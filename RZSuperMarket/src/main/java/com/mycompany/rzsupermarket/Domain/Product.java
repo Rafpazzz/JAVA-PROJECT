@@ -80,6 +80,10 @@ public class Product {
         return sb.toString();
     }
 
+    public String getLote() {
+        return lote;
+    }
+    
     public int getId() {
         return id;
     }
