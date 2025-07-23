@@ -16,6 +16,7 @@ public class Menu extends javax.swing.JFrame {
     
     
     ProdutoMenu prodMenu = new ProdutoMenu();
+    FuncionarioMenu funcMenu = new FuncionarioMenu();
     
     
     public Menu() {
@@ -35,8 +36,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Funcionario = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -52,23 +52,15 @@ public class Menu extends javax.swing.JFrame {
         jButton1.setText(" Produto");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrarProduto(evt);
+                Produto(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton2.setText("Gerar Nota Fiscal");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Funcionario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Funcionario.setText("Funcionario");
+        Funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton3.setText("Funcionario");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                Funcionario(evt);
             }
         });
 
@@ -77,13 +69,11 @@ public class Menu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(79, 79, 79)
                 .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(46, 46, 46))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Funcionario)
+                .addGap(104, 104, 104))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
@@ -97,27 +87,23 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(128, 128, 128)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2))
+                    .addComponent(Funcionario))
                 .addGap(91, 91, 91))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cadastrarProduto(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarProduto
+    private void Produto(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Produto
         prodMenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);// quando fecha a janela o programa não encerra
         prodMenu.setVisible(true);
 
-    }//GEN-LAST:event_cadastrarProduto
+    }//GEN-LAST:event_Produto
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void Funcionario(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Funcionario
+        funcMenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        funcMenu.setVisible(true);
+    }//GEN-LAST:event_Funcionario
 
     /**
      * @param args the command line arguments
@@ -155,9 +141,8 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Funcionario;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
