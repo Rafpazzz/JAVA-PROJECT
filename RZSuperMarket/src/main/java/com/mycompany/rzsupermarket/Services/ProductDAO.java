@@ -4,6 +4,7 @@
  */
 package com.mycompany.rzsupermarket.Services;
 
+import com.mycompany.rzsupermarket.View.BancoDados;
 import com.mycompany.rzsupermarket.Domain.Product;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,6 +16,8 @@ import javax.swing.JOptionPane;
 
 
 public class ProductDAO {
+    
+    BancoDados bd = new BancoDados();
 
     public boolean verificaPreenchimento (String name, String marca, String fabricacao, String tipo, String lote, String validade) {
         if (name == null || name.trim().isEmpty() || marca == null || marca.trim().isEmpty() || fabricacao == null || fabricacao.trim().isEmpty()
@@ -57,6 +60,7 @@ public class ProductDAO {
             JOptionPane.showMessageDialog(null, "Produto presente no sistema! Por favor verifique o id do produto", "Notificação do Sistema", JOptionPane.ERROR_MESSAGE);
         }else {
             productList.add(prod);
+            bd.adcionarElementoNoBanco(prod);
         }
     }
     
@@ -80,6 +84,7 @@ public class ProductDAO {
         
         if(prod != null) {
             productList.remove(prod);
+            bd.removerElementoDoBanco(prod);
         }else {
             JOptionPane.showMessageDialog(null, "Produto nao encontrado", "Mensagem do Sistema", JOptionPane.ERROR_MESSAGE);
             

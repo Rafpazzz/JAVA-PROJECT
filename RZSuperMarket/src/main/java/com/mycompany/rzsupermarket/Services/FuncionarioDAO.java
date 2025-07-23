@@ -5,6 +5,7 @@
 package com.mycompany.rzsupermarket.Services;
 
 import com.mycompany.rzsupermarket.Domain.Funcionario;
+import com.mycompany.rzsupermarket.View.BancoDados;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -17,6 +18,8 @@ import javax.swing.JOptionPane;
  * @author Raf
  */
 public class FuncionarioDAO {
+    
+    BancoDados bd = new BancoDados();
 
     public boolean VerioficaPreenchimento(String nome, String cpf, String setor, String dataNas) {
         if (nome == null || nome.trim().isEmpty() || cpf == null || cpf.trim().isEmpty() || setor == null || setor.trim().isEmpty() || dataNas == null || dataNas.trim().isEmpty()) {
@@ -52,6 +55,7 @@ public class FuncionarioDAO {
             JOptionPane.showMessageDialog(null, "Funcionario ja Existe No sistema", "Mensagem do SIstema", JOptionPane.ERROR_MESSAGE);
         }else {
             listFunc.add(func);
+            bd.adcionarElementoNoBanco(func);
             JOptionPane.showMessageDialog(null, "Funcionario adcionado no sistema");
         }
     }
@@ -68,6 +72,7 @@ public class FuncionarioDAO {
         
         if(funcionarioARemover != null) {
             listFunc.remove(funcionarioARemover);
+            bd.removerElementoDoBanco(funcionarioARemover);
         }else {
             JOptionPane.showMessageDialog(null, "Funcionario não existe no sistema", "Mensagem do Sistema", JOptionPane.ERROR_MESSAGE);
         }
@@ -104,6 +109,7 @@ public class FuncionarioDAO {
         if(funcionarioABuscar != null) {
             double salarioNovo = funcionarioABuscar.getSalario() + (funcionarioABuscar.getSalario()*valor/100);
             funcionarioABuscar.setSalario(salarioNovo);
+            bd.atualizarSalario(funcionarioABuscar, listFunc);
             JOptionPane.showMessageDialog(null, "Salario alterado com Sucesso");
         }else {
             JOptionPane.showMessageDialog(null, "Funcionario não existe no sistema", "Mensagem do Sistema", JOptionPane.ERROR_MESSAGE);
